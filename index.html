@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>AR in Web</title>
-    <!-- Подключение стабильной версии A-Frame -->
-    <script src="https://aframe.io"></script>
-    <!-- Подключение официального стабильного AR.js для A-Frame -->
-    <script src="https://githack.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>AR in Web</title>
 </head>
-<body style="margin: 0px; overflow: hidden;">
-
-    <!-- Настройка сцены: отключена UI-кнопка VR и включен модуль AR.js с веб-камерой -->
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false;">
-        
-        <!-- Маркер Hiro (стандартный шаблон) -->
-        <a-marker preset="hiro">
-            
-            <!-- Синий анимированный куб -->
-            <a-box position="0 0.5 0" 
-                   scale="0.5 0.5 0.5" 
-                   material="color: #0077ff;" 
-                   animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
-            </a-box>
-
-        </a-marker>
-        
-        <!-- Добавлена виртуальная камера для связи координат 3D-мира и маркера -->
-        
-        
-    </a-scene>
-
+<body>
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-jsorg/AR.js/master/aframe/build/aframe-ar.js"></script>
+<a-scene embedded arjs="patternRatio: 0.5">
+<a-marker preset="pattern" type="pattern"
+url="https://cdn.glitch.global/f85a8991-915b-48c3-8298-ed520dd461f9/patternmarker.patt?v=1695211668824">
+<a-entity
+position="0 0 0"
+scale="0.01 0.01 0.01"
+gltf-model="obj/scene.gltf"
+></a-entity>
+</a-marker>
+<a-entity camera></a-entity>
+</a-scene>
 </body>
 </html>

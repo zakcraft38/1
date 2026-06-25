@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>AR in Web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AR in Web</title>
 </head>
 <body>
-<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-jsorg/AR.js/master/aframe/build/aframe-ar.js"></script>
-<a-scene embedded arjs>
-<a-marker preset="hiro"> //За допомогою preset воно реагує на
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-jsorg/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <a-scene embedded arjs>
+    <a-marker preset="hiro"> //За допомогою preset воно реагує на
 картинку
-<a-entity
-position="0 0 0"
-scale="0.01 0.01 0.01"
-gltf-model="obj/scene.gltf"
-></a-entity>
-</a-marker>
-<a-entity camera></a-entity>
-</a-scene>
+      <a-entity
+        position="0 0 0"
+        scale="0.01 0.01 0.01"
+        gltf-model="obj/scene.gltf"
+      ></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
 </body>
 </html>

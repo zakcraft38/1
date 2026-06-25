@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>AR in Web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Test Scene</title>
+    <script src="https://aframe.io"></script>
+    <script src="https://githack.com"></script>
 </head>
-<body>
-<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-jsorg/AR.js/master/aframe/build/aframe-ar.js"></script>
-<a-scene embedded arjs>
-<a-marker preset="hiro"> //За допомогою preset воно реагує на
-картинку
-<a-entity
-position="0 0.5 0"
-scale="1 1 1"
-gltf-model="demo.glb"
-></a-entity>
-</a-marker>
-<a-entity camera></a-entity>
-</a-scene>
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        
+        <a-marker preset="hiro">
+            <!-- Вместо сложной 3D-модели мы временно ставим обычный красный куб -->
+            <a-box position="0 0.5 0" material="color: red;"></a-box>
+        </a-marker>
+        
+        
+    </a-scene>
 </body>
 </html>

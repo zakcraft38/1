@@ -2,23 +2,46 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <!-- Подключаем чистые и стабильные CDN-библиотеки -->
+    <!-- Сверхстабильный A-Frame -->
     <script src="https://cloudflare.com"></script>
-    <script src="https://cloudflare.com"></script>
+    <!-- Актуальный и безопасный движок AR.js под современные ОС -->
+    <script src="https://githack.com"></script>
+    <style>
+      /* Кнопка запуска для обхода блокировок безопасности телефона */
+      #start-btn {
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        padding: 15px 30px; font-size: 18px; font-weight: bold; background: #0077ff;
+        color: white; border: none; border-radius: 8px; cursor: pointer; z-index: 9999;
+      }
+    </style>
   </head>
   <body style="margin: 0px; overflow: hidden;">
     
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-      <!-- Отслеживаем маркер Hiro -->
+    <button id="start-btn">ВКЛЮЧИТЬ AR КАМЕРУ</button>
+
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" style="display: none;">
       <a-marker preset="hiro">
-        <!-- Показываем синий куб, который плавно вращается -->
-        <a-box position="0 0.5 0" 
-               material="color: #0077ff; opacity: 0.9;" 
-               animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
-        </a-box>
+        <!-- Наш синий вращающийся куб -->
+        <a-box position="0 0.5 0" material="color: #0077ff;" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-box>
       </a-marker>
       
     </a-scene>
 
+    <script>
+      const btn = document.getElementById('start-btn');
+      const scene = document.querySelector('a-scene');
+      
+      btn.addEventListener('click', () => {
+        btn.style.display = 'none'; // Прячем кнопку после клика
+        scene.style.display = 'block'; // Показываем AR сцену
+        
+        // Запрашиваем камеру строго ПОСЛЕ действия пользователя
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+          .then(() => {
+            window.dispatchEvent(new Event('resize'));
+          })
+          .catch(err => alert("Ошибка доступа: " + err));
+      });
+    </script>
   </body>
 </html>

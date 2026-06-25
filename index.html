@@ -10,7 +10,11 @@
     <!-- Marker for tracking -->
     <a-marker type="pattern" url="/1/pattern-hiro.patt">
       <!-- Plane to display the image -->
-      <a-plane id="imagePlane" position="0 0 0" rotation="-90 0 0" width="4" height="2.25" material="shader: flat; scale: 2 2 2"></a-plane>
+      <a-entity
+        position="0 0 0"
+        scale="0.01 0.01 0.01"
+        gltf-model="/1/demo.glb"
+      ></a-entity>
     </a-marker>
     <!-- Camera to view the scene -->
     <a-entity camera></a-entity>

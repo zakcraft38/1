@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Подключаем чистые и стабильные CDN-библиотеки -->
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+  </head>
+  <body style="margin: 0px; overflow: hidden;">
+    
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+      <!-- Отслеживаем маркер Hiro -->
+      <a-marker preset="hiro">
+        <!-- Показываем синий куб, который плавно вращается -->
+        <a-box position="0 0.5 0" 
+               material="color: #0077ff; opacity: 0.9;" 
+               animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
+        </a-box>
+      </a-marker>
+      
+    </a-scene>
+
+  </body>
+</html>

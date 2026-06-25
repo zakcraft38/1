@@ -2,24 +2,23 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <!-- Подключаем современный движок MindAR (вместо старого AR.js) -->
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io"></script>
-    <script src="https://jsdelivr.net"></script>
+    <!-- Используем чистый A-Frame новейшей версии, телефон её полностью одобряет -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   </head>
   <body style="margin: 0px; overflow: hidden;">
 
-    <!-- Инициализируем сцену с готовым тестовым маркером от MindAR -->
-    <a-scene mindar-image="imageTargetSrc: https://jsdelivr.net;" 
-             embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <!-- Запускаем WebXR сцену дополненной реальности (режим ar) -->
+    <a-scene xr-mode-ui="XRMode: ar">
       
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <!-- Создаем обычный 3D-куб прямо перед виртуальной камерой -->
+      <a-box position="0 0 -1.5" 
+             scale="0.3 0.3 0.3" 
+             material="color: #0077ff;" 
+             animation="property: rotation; to: 0 360 0; loop: true; dur: 3000">
+      </a-box>
 
-      <!-- Когда камера увидит картинку (мишень с индексом 0), покажем синий куб -->
-      
-        <a-box position="0 0 0" scale="0.5 0.5 0.5" material="color: #0077ff;" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-box>
-      
       
     </a-scene>
+
   </body>
 </html>

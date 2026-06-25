@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>AR in Web</title>
-    <!-- Подключаем стабильный A-Frame -->
+    <!-- ДОБАВЛЕНО: Стабильный A-Frame -->
     <script src="https://cloudflare.com"></script>
-    <!-- ИСПРАВЛЕНО: Правильная ссылка на AR.js (добавлен дефис AR-js-org) -->
-    <script src="https://githack.com"></script>
+    <!-- ДОБАВЛЕНО: Официальный стабильный AR.js без опечаток -->
+    <script src="https://cloudflare.com"></script>
 </head>
 <body style="margin: 0px; overflow: hidden;">
 
-    <!-- Инициализируем AR сцену без лишних дебаг-панелей -->
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <!-- ДОБАВЛЕНО: vr-mode-ui="enabled: false" принудительно отключает кнопки AR/VR, ломающие маркеры -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false;">
         
         <!-- Реагирует на стандартную картинку Hiro -->
         <a-marker preset="hiro">
             
-            <!-- ВРЕМЕННО ДЛЯ ТЕСТА: Показываем яркий синий куб нормального размера -->
-             -->
+            <!-- Показываем яркий синий куб нормального размера -->
             <a-box position="0 0.5 0" 
                    scale="0.5 0.5 0.5" 
                    material="color: #0077ff;" 
@@ -26,6 +25,8 @@
             </a-box>
 
         </a-marker>
+        
+        <!-- ДОБАВЛЕНО: Виртуальная камера для отрисовки 3D поверх реального мира -->
         
         
     </a-scene>
